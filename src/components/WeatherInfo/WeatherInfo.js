@@ -3,42 +3,45 @@ import "./weatherInfo.css";
 import { WiDegrees } from "react-icons/wi";
 
 const WeatherInfo = ({ weatherData, isLoading }) => {
-  const { date, text, wind, humidity, pressure, temp, index } =
-    weatherData;
+  const { date, text, wind, humidity, pressure, temp, index } = weatherData;
   if (isLoading) {
     return <h1>Loading..</h1>;
   }
   if (!weatherData) {
     return <h1>No data found!</h1>;
   }
-  
-  let banding
+
+  let banding;
   if (index <= 3) {
-    banding = 'Low, Enjoy!'
+    banding = "Low, Enjoy!";
   } else if (index > 3 && index <= 6) {
-    banding = 'Moderate, Enjoy!'
-  }
-   else if (index > 6 && index <= 9) {
-    banding = 'High, Reduce going out!'
+    banding = "Moderate, Enjoy!";
+  } else if (index > 6 && index <= 9) {
+    banding = "High, Reduce going out!";
   } else {
-    banding = "Very high, Don't go out 🤫" 
+    banding = "Very high, Don't go out 🤫";
   }
 
-  let newDate = new Date(date).toDateString()
-  newDate = newDate.split(' ')
+  let newDate = new Date(date).toDateString();
+  newDate = newDate.split(" ");
 
   return (
     <section>
       <div className="info-1-container">
-        <p className="date">Today, {newDate[2]} { newDate[1]}</p>
-        <h1>{text}</h1>
+        <p className="date">
+          Today, {newDate[2]} {newDate[1]}
+        </p>
+        <div className="header-container">
+          <h1>{text}</h1>
+          <div className="line"></div>
+        </div>
         <div className="wind-container">
           <div className="wind">
-            <p>Wind</p>
+            <p>Wind speed</p>
             <h2>{wind} km/hr</h2>
           </div>
           <div className="hum">
-            <p>Hum</p>
+            <p>Humidity</p>
             <h2>{humidity}%</h2>
           </div>
           <div className="pressure">
@@ -57,8 +60,8 @@ const WeatherInfo = ({ weatherData, isLoading }) => {
         </div>
         <div className="air-quality">
           <p>Air Quality Index</p>
-          <h2>{index }</h2>
-          <p>{ banding}</p>
+          <h2>{index}</h2>
+          <p>{banding}</p>
         </div>
       </div>
     </section>

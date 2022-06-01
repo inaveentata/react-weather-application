@@ -9,9 +9,9 @@ function App() {
   const [weatherData, setWeatherData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    setIsLoading(true); 
+    setIsLoading(true);
     const fetchData = async () => {
-      if (searchPlace.length>= 4) {
+      if (searchPlace.length >= 4) {
         try {
           const resp = await axios.get(
             `https://api.weatherapi.com/v1/current.json?key=93492c2d7a4647e2a9f50431220106&q=${searchPlace}&aqi=yes`
@@ -36,8 +36,8 @@ function App() {
               pressure: pressure_mb,
               temp: feelslike_c,
             };
-            const { text, icon } = condition
-            const index = air_quality["gb-defra-index"]
+            const { text, icon } = condition;
+            const index = air_quality["gb-defra-index"];
 
             const info2 = { country, region, name };
             const finalData = { ...info1, ...info2, text, icon, index };
@@ -49,8 +49,8 @@ function App() {
           console.log(error.response);
         }
         setIsLoading(false);
-      };
-    }
+      }
+    };
     fetchData();
   }, [searchPlace]);
   return (
@@ -60,7 +60,7 @@ function App() {
         setSearchPlace={setSearchPlace}
         weatherData={weatherData}
       />
-      <WeatherInfo weatherData={weatherData} isLoading={isLoading}/>
+      <WeatherInfo weatherData={weatherData} isLoading={isLoading} />
     </main>
   );
 }

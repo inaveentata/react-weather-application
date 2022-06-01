@@ -11,7 +11,7 @@
 }
 .info-1-container h1 {
   font-size: 2rem;
-  color: rgb(238, 248, 241);
+  margin: 1rem 0;
 }
 
 .hum{
@@ -25,10 +25,6 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-  }
-
-  .info-1-container h1 {
-    margin: 1rem 0;
   }
   .hum{
     margin: 0;
@@ -67,6 +63,20 @@
 
 .air-quality {
   background-color: rgba(54, 53, 53, 0.534);
+}
+
+.header-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.line{
+  height: 2px;
+  background-color: aliceblue;
+  width: 80px;
+  text-align: center;
 }
 
 
